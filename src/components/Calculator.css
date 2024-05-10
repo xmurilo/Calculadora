@@ -14,11 +14,11 @@
   border: 1px solid #000;
   margin-bottom: 10px;
   padding: 5px;
+  overflow: auto;
 }
 
 .operation-operation {
   height: 30px;
-  overflow: auto;
 }
 .buttons {
   display: grid;
