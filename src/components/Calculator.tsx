@@ -9,7 +9,23 @@ const Calculator = () => {
   const keypadNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const operations = ["+", "-", "*", "/"];
 
+  const handleClick = (value: string) => {
+    setCurrentValue(prevValue => {
+      if (prevValue === "0") {
+        return value;
+      } else {
+        return prevValue + value;
+      }
+    });
+    setCompleteOperation(prevOperation => prevOperation + value);
+  };
 
+  const hadleClear = () => {
+    setCurrentValue("0");
+    setPendingOperation(null);
+    setPendingValue(null);
+    setCompleteOperation("");
+  };
 
   return (
     <div className="calculator">
