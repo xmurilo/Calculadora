@@ -1,16 +1,28 @@
+import { useState } from "react";
 import "./Calculator.css";
 const Calculator = () => {
+  const [currentValue, setCurrentValue] = useState("0");
+  const [pendingOperation, setPendingOperation] = useState(null);
+  const [pendingValue, setPendingValue] = useState(null);
+  const [completeOperation, setCompleteOperation] = useState("");
+
   const keypadNumbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
   const operations = ["+", "-", "*", "/"];
 
+
+
   return (
     <div className="calculator">
-      <div className="complete-operation">3 + 3 = 6</div>
-      <div className="display">000</div>
+      <div className="complete-operation">{completeOperation}</div>
+      <div className="display">{currentValue}</div>
       <div className="buttons">
-        <button>AC</button>
+        <button onClick={hadleClear}>AC</button>
         {keypadNumbers.map(num => {
-          return <button key={num}>{num}</button>;
+          return (
+            <button key={num} onClick={() => handleClick(num)}>
+              {num}
+            </button>
+          );
         })}
         {operations.map(operation => {
           return <button key={operation}>{operation}</button>;
