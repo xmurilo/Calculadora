@@ -20,6 +20,13 @@ const Calculator = () => {
     setCompleteOperation(prevOperation => prevOperation + value);
   };
 
+  const handleOperation = operation => {
+    setCompleteOperation(currentValue + " " + operation);
+    setPendingOperation(operation);
+    setCurrentValue(currentValue);
+    setCurrentValue("");
+  };
+
   const hadleClear = () => {
     setCurrentValue("0");
     setPendingOperation(null);
@@ -41,7 +48,11 @@ const Calculator = () => {
           );
         })}
         {operations.map(operation => {
-          return <button key={operation}>{operation}</button>;
+          return (
+            <button key={operation} onClick={() => handleOperation(operation)}>
+              {operation}
+            </button>
+          );
         })}
         <button>=</button>
       </div>
