@@ -7,19 +7,26 @@
   margin: auto;
 }
 
-.display,
-.complete-operation {
+.display {
   width: 100%;
   height: 50px;
   border: 1px solid #000;
   margin-bottom: 10px;
+  text-align: right;
   padding: 5px;
+}
+
+.complete-operation {
+  width: 100%;
+  min-height: 30px;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  text-align: right;
+  padding: 5px;
+  font-size: 0.8rem;
   overflow: auto;
 }
 
-.operation-operation {
-  height: 30px;
-}
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -28,5 +35,5 @@
 
 button {
   padding: 10px;
-  font-style: 16px;
+  font-size: 16px;
 }
